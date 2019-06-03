@@ -6,11 +6,48 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class TestReflection {
-    //如何获取Class的实例（3种）
+    //关于类的加载器
     @Test
-    public void test4(){
+    public void test5(){
+        ClassLoader loader=ClassLoader.getSystemClassLoader();
+        System.out.println(loader);
+
+        Class classz=Person.class;
+        ClassLoader classLoader=classz.getClassLoader();
+        System.out.println(classLoader);
+
+        Class c=String.class;
+        ClassLoader classLoader1=c.getClassLoader();
+        System.out.println(classLoader1);
+
 
     }
+
+
+    //如何获取Class的实例（3种）
+    @Test
+    public void test4() throws Exception{
+//        1，调用运行时类本身.class属性
+        Class clazz=Person.class;
+        System.out.println(clazz);
+//        2.通过运行时类的对象获取
+        Person p=new Person();
+        Class clazz1=p.getClass();
+        System.out.println(clazz1);
+//        3.通过Class的静态方法获取..(体会下反射动态性)
+        String ClassName="com.javaReflection.qq.Person";
+        Class clazz4=Class.forName(ClassName);
+        clazz4.newInstance();
+        System.out.println(clazz4.getName());
+//        (了解)通过类的加载器
+        ClassLoader classLoader=this.getClass().getClassLoader();
+        Class clazz5=classLoader.loadClass(ClassName);
+        System.out.println("ll,"+clazz5 );
+    }
+
+    /**
+     * 类的加载过程 java虚拟机
+     */
 
     /**
      * java.lang.Class:是反射的源头   （每一个.class文件都是一个Class实例）
@@ -67,7 +104,7 @@ public class TestReflection {
      p.setName("qiangqiang");
         System.out.println(p);
         p.show();
-        p.display("china");
+//        p.display("china");
     }
 
 }

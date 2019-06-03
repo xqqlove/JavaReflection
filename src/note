@@ -31,3 +31,16 @@ Java反射机制提供的功能
  --每个类的实例都会记住自己是由那个Class实例所生成
  --通过Class可以完整的得到一个类中的完整结构
 
+ClassLoader
+
+Class 对象能做什么？
+   --1创建类对象，调用Class对象的newInstance()方法
+     要求：必须有无参构造器
+       构造器的访问权限需要足够
+
+    --
+
+通过反射调用类中指定的方法和属性
+   通过Method类调用类中的方法
+   1.通过Class类的getMethod（）获取method对象
+   使用Object invoke()调用
