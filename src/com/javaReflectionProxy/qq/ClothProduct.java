@@ -3,6 +3,8 @@ package com.javaReflectionProxy.qq;
 //接口
 interface ClothFactory {
     void productCloth();
+
+    //sdc
 }
 
 //被代理类
@@ -33,6 +35,7 @@ class TestClothProduct{
         NikeClothFactory nike=new NikeClothFactory();//创建被代理类的对象
         ProxyFactory proxy=new ProxyFactory(nike);//创建代理类的对象
         proxy.productCloth();
+        System.out.println("hahahah");
     }
 }
 
