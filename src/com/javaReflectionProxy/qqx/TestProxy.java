@@ -1,6 +1,11 @@
 package com.javaReflectionProxy.qqx;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.Random;
+
+import static sun.net.www.protocol.http.AuthCacheValue.Type.Proxy;
 
 //静态代理
 interface Flyable{
@@ -67,7 +72,23 @@ class  BirdLogProxy implements Flyable{
 
 
 //动态代理
-
+//class BirdProxy implements InvocationHandler{
+//      Object obj;
+//
+//    public Object getBirdProxy(Object obj){
+//        this.obj=obj;
+//        return java.lang.reflect.Proxy.newProxyInstance(obj.getClass().getClassLoader(),obj.get)
+//    }
+//
+//    @Override
+//    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//        System.out.println("---------------begin----------------");
+//        Object invoke=method.invoke(obj,args);
+//        System.out.println("----------------end---------------------");
+//        return null;
+//
+//    }
+//}
 
 public class TestProxy {
     public static void main(String[] args) {
@@ -83,5 +104,13 @@ public class TestProxy {
         birdTimeProxy.fly();
         System.out.println("*****************************************************************");
         birdLogProxy.fly();
+
+        //动态代理
+//        System.out.println("============================动态代理===============================");
+//        Bird bird1=new Bird();
+////        InvocationHandler birdProxy=new BirdProxy(bird1);
+//        Flyable proxyInstance= (Flyable) java.lang.reflect.Proxy.newProxyInstance(birdProxy.getClass().getClassLoader(),birdProxy.getClass().getInterfaces(),birdProxy);
+//        proxyInstance.fly();
+
     }
 }
