@@ -49,4 +49,6 @@ public class TestProxy {
         ClothFactory proxyCloth= (ClothFactory) handler.bind(nike);
         proxyCloth.productCloth();
     }
+
+
 }
