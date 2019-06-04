@@ -110,6 +110,11 @@ public class TestProxy {
 //        Bird bird1=new Bird();
 ////        InvocationHandler birdProxy=new BirdProxy(bird1);
 //        Flyable proxyInstance= (Flyable) java.lang.reflect.Proxy.newProxyInstance(birdProxy.getClass().getClassLoader(),birdProxy.getClass().getInterfaces(),birdProxy);
+
+        /***
+         * 为什么所有被代理对象方法的执行，都是走的代理对象的invoke()方法？？？？？？？？？？？？
+         * 详看jdk源码 （参看https://www.cnblogs.com/gonjan-blog/p/6685611.html）
+         */
 //        proxyInstance.fly();
 
     }
