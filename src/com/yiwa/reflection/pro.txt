@@ -1,0 +1,2 @@
+className = com.yiwa.reflection.Student
+methodName = show
